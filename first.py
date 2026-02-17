@@ -170,7 +170,7 @@
 # Dataclasea reduced the classes 
 
 
-from dataclasses import dataclass
+# from dataclasses import dataclass
 
 
 # @dataclass
@@ -190,29 +190,29 @@ from dataclasses import dataclass
 
 
 
-@dataclass
+# @dataclass
 
-class Person:
-    name:str
-    age:int
+# class Person:
+#     name:str
+#     age:int
 
 
 #  Inheritence In Dataclasses:
-@dataclass
+# @dataclass
 
-class Employe(Person):
-    salary:int
-    employee_id:int
-
-
+# class Employe(Person):
+#     salary:int
+#     employee_id:int
 
 
 
-result = Employe("Farhan",20,1000,123)
+
+
+# result = Employe("Farhan",20,1000,123)
 
 
 
-print(result)
+# print(result)
 
 
 
@@ -220,17 +220,162 @@ print(result)
 
 
 
-@dataclass(frozen=True)
+# @dataclass(frozen=True)
 
-class Point:
-   x:int
-   y:int
-
-
-
-print(Point(1,2))
+# class Point:
+#    x:int
+#    y:int
 
 
+
+# print(Point(1,2))
+
+# # 
+# @dataclass
+# class Product:
+#     name: str
+#     price: float
+#     in_stock: bool = True
+
+
+
+# print(Product("Laptop",1000.0))
+
+
+# 
+
+    # from dataclasses import field,dataclass
+
+    # @dataclass
+
+    # class User:
+    #     name: str
+    #     age: int
+
+    #     def __post_init__(self):
+    #         if self.age <= 18:
+    #             raise ValueError("Age cannot be less than 18")
+
+        
+        
+        
+        
+
+
+
+
+    # print(User("Farhan",15))
+
+
+
+
+
+
+
+# Asyncio:
+
+
+
+import asyncio
+
+
+# async def Greeting():
+
+#     print("Hello, World!")
+
+#     await asyncio.sleep(3)
+
+#     print("Hello, World! 2")
+
+
+
+# asyncio.run(Greeting())
+
+
+
+
+# So there are some difference between time.sleep() and ayncio.sleep()
+
+# So the first one froze everything while ther other one not froze everything ,just wait to exeucte from the awiat task ,
+# and the other task work as same.
+
+
+
+
+
+
+# async def Task1():
+#     await asyncio.sleep(2)
+#     print("Task 1")
+
+
+
+
+# async def Task2():   
+#     await asyncio.sleep(2)
+#     print("Task 2")
+
+
+
+
+# async def main():
+#     await asyncio.gather(Task1(),Task2())
+
+
+
+# asyncio.run(main())
+
+
+
+
+
+# 
+
+
+
+# async def wait_and_print():
+
+#     print("Waiting.....");
+
+#     await asyncio.sleep(3)
+
+#     print("Finished Waiting.....");
+
+
+
+
+
+# asyncio.run(wait_and_print())
+
+
+
+
+
+# 
+
+
+
+import time
+import asyncio
+
+def blocking_task():
+    print("Blocking Start")
+    time.sleep(3)
+    print("Blocking End")
+
+
+async def async_task():
+    print("Async Start")
+    await asyncio.sleep(3)
+    print("Async End")
+
+
+
+async def main():
+    await async_task()
+    blocking_task()
+
+asyncio.run(main())
 
 
 
