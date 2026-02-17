@@ -90,34 +90,34 @@
 
 # First Problems:
 
-def multi(a:float,b:float) -> float | None:
-    return a * b;
+# def multi(a:float,b:float) -> float | None:
+#     return a * b;
 
 
 
 
-result = multi(2.5,2.3)
-print(result)
+# result = multi(2.5,2.3)
+# print(result)
 
 
 
-# Second Problems:
+# # Second Problems:
 
-def get_names(names: list[str]) -> str | None:
-    if names:
-        return names[0]
-    return None
-
-
+# def get_names(names: list[str]) -> str | None:
+#     if names:
+#         return names[0]
+#     return None
 
 
 
 
-result = get_names(["Farhan","Ali"]);
+
+
+# result = get_names(["Farhan","Ali"]);
 
 
 
-print(result)
+# print(result)
 
 
 
@@ -144,4 +144,93 @@ print(result)
 #         raise TypeError("User id must be string or Number.")
 
 #      return str(user_id)   
+
+
+
+
+# from typing import Literal
+
+
+# def set_status(status:Literal["success","error","pending"]) -> None:
+#     print(status)
+
+
+
+# set_status("success")
+
+
+
+
+
+#  What Problem Do Dataclasses Solve?
+
+
+
+
+# Dataclasea reduced the classes 
+
+
+from dataclasses import dataclass
+
+
+# @dataclass
+# class User:
+#     name: str
+#     age: int
+
+
+
+
+# result = User("Farhan",20)
+
+
+# print(result)
+
+
+
+
+
+@dataclass
+
+class Person:
+    name:str
+    age:int
+
+
+#  Inheritence In Dataclasses:
+@dataclass
+
+class Employe(Person):
+    salary:int
+    employee_id:int
+
+
+
+
+
+result = Employe("Farhan",20,1000,123)
+
+
+
+print(result)
+
+
+
+# Immutability In Dataclasses:
+
+
+
+@dataclass(frozen=True)
+
+class Point:
+   x:int
+   y:int
+
+
+
+print(Point(1,2))
+
+
+
+
 
