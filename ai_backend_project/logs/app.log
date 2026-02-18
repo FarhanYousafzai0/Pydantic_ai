@@ -1,0 +1,8 @@
+2026-02-18 16:31:31,939 - app_logger - INFO - Creating user: Hassan Ali with age 20
+2026-02-18 16:31:31,940 - app_logger - INFO - User Hassan Ali created successfully
+2026-02-18 16:55:18,643 - app_logger - INFO - Creating user: Hassan Ali with age 20
+2026-02-18 16:55:18,643 - app_logger - INFO - User Hassan Ali created successfully
+2026-02-18 16:55:35,334 - app_logger - INFO - Root endpoint called
+2026-02-18 16:56:41,318 - app_logger - INFO - Root endpoint called
+2026-02-18 17:05:17,342 - app_logger - INFO - Creating user: MetaCloud with age 5
+2026-02-18 17:05:17,342 - app_logger - INFO - User MetaCloud created successfully
