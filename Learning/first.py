@@ -348,34 +348,159 @@ import asyncio
 # asyncio.run(wait_and_print())
 
 
+# import requests
+
+
+
+# async def image1():
+
+#     URL = "https://cdn.wallpapersafari.com/9/81/yaqGvs.jpg"
+#     response = requests.get(URL)
+#     if response.status_code == 200:
+#         with open("image1.jpg","wb") as file:
+#             file.write(response.content)
+
+
+
+
+
+
+
+# async def image2():
+#     URL = "https://images8.alphacoders.com/119/thumb-1920-1195441.jpg"
+
+#     response = requests.get(URL)
+
+#     if response.status_code == 200:
+#         with open("image2.jpg","wb") as file:
+#             file.write(response.content)
+
+
+
+
+# async def image3():
+
+#     URL = "https://play-lh.googleusercontent.com/BpZW3-Loxcv_DY3RX8bmVGzPl6d4NXPe5gOUg2MgYa8WJWD8vd1Y9T2EsQvDVuqvpTQM"
+#     response = requests.get(URL)
+#     if response.status_code == 200:
+#         with open("image3.jpg","wb") as file:
+#             file.write(response.content)
+
+
+
+
+# async def main():
+#     await asyncio.gather(image1(),image2(),image3())
+
+
+# asyncio.run(main())
+
+
+
+
+
+
+
+
+# import time
+
+
+# def blocking_task():
+#     print("Blocking Start")
+#     time.sleep(3)
+#     print("Blocking End")
+
+
+# async def async_task():
+#     print("Async Start")
+#     await asyncio.sleep(3)
+#     print("Async End")
+
+
+
+# async def main():
+#     await async_task()
+#     blocking_task()
+
+# asyncio.run(main())
+
+
+
 
 
 
 # 
+# import asyncio
+
+# async def func1():
+
+#     await asyncio.sleep(2)
+#     print("I am the first function")
 
 
 
-import time
-import asyncio
 
-def blocking_task():
-    print("Blocking Start")
-    time.sleep(3)
-    print("Blocking End")
-
-
-async def async_task():
-    print("Async Start")
-    await asyncio.sleep(3)
-    print("Async End")
+# async def func2():
+#     await asyncio.sleep(2)
+#     print("I am the second function")
 
 
 
-async def main():
-    await async_task()
-    blocking_task()
 
-asyncio.run(main())
+# async def main():
+#     await asyncio.gather(func1(),func2())
+
+
+
+
+# asyncio.run(main())
+
+
+
+
+
+
+#  Evironment Variables :
+
+
+# import os 
+
+# from dotenv import load_dotenv
+
+
+
+# load_dotenv()
+
+
+# api_key = os.getenv("API_KEY")
+# print(api_key)
+
+
+
+
+
+
+
+# Logging :
+
+
+
+import logging
+
+
+logging.basicConfig(level=logging.INFO);
+
+
+
+logging.info("This is an info message");
+logging.warning("This is a warning message");
+logging.error("This is an error message");
+logging.critical("This is a critical message");
+
+
+
+
+
 
 
 
