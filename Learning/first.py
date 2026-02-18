@@ -485,22 +485,112 @@ import asyncio
 
 
 
-import logging
+# import logging
 
 
-logging.basicConfig(level=logging.INFO);
+# logging.basicConfig(level=logging.INFO);
 
 
 
-logging.info("This is an info message");
-logging.warning("This is a warning message");
-logging.error("This is an error message");
-logging.critical("This is a critical message");
-
-
+# logging.info("This is an info message");
+# logging.warning("This is a warning message");
+# logging.error("This is an error message");
+# logging.critical("This is a critical message");
 
 
 
 
 
 
+# Pydantic Ai 
+
+
+
+from pydantic import BaseModel,Field,EmailStr, field_validator
+
+
+# class User(BaseModel):
+#     name:str = Field(...,description="The name of the user.")
+#     age:int = Field(...,description="The age of the user.")
+#     email:EmailStr = Field(...,description="The email of the user.")
+
+
+
+# user = User(name="Farhan",age=20,email="farhan@example.com")
+# print(user)
+
+
+
+
+# Validation:1. BaseModel — The Foundation for Validation
+# 2. Field — Defines the structure of the model
+# 3. EmailStr — A validator for email addresses
+# 4. Validation Errors — Handling validation errors
+# 5. Custom Validation — Adding custom validation
+# 6. Pydantic AI — AI-powered validation
+# 7. Pydantic Settings — Configuration for Pydantic
+# 8. Pydantic Models — Creating reusable models
+# 9. Pydantic Validators — Custom validation functions
+# 10. Pydantic Types — Built-in types for validation
+# 11. Pydantic Extensions — Extending Pydantic functionality
+
+
+
+# BASIC MODEL .
+
+# class CustomUser(BaseModel):
+#     name:str = Field(...,description="The name of the user.")
+#     age:int = Field(...,description="The age of the user.")
+#     email:EmailStr = Field(...,description="The email of the user.")
+#     is_active:bool = Field(default=True,description="Whether the user is active.")
+#     nickname:str | None = Field(default=None,description="The nickname of the user.")
+
+
+
+
+
+# user = CustomUser(name="Farhan",age=20,email="farhan@example.com",is_active=True,nickname="Farhan")
+
+# print(user)
+
+from pydantic import BaseModel, field_validator
+
+class User(BaseModel):
+    name: str
+    age: int
+    email: str
+    password: str
+
+    @field_validator("age")
+    @classmethod
+    def age_must_be_positive(cls, value):
+        if value < 0:
+            raise ValueError("Age cannot be negative")
+        if value > 150:
+            raise ValueError("Age seems unrealistic")
+        return value
+
+    @field_validator("name")
+    @classmethod
+    def name_must_not_be_empty(cls, value):
+        if len(value.strip()) == 0:
+            raise ValueError("Name cannot be empty")
+        return value.strip().title()   # auto clean + capitalize
+
+    @field_validator("password")
+    @classmethod
+    def password_strength(cls, value):
+        if len(value) < 8:
+            raise ValueError("Password must be at least 8 characters")
+        if not any(c.isupper() for c in value):
+            raise ValueError("Password must have uppercase letter")
+        return value
+
+
+# Test
+user = User(name="  ahmed  ", age=25, email="a@b.com", password="Secret123")
+print(user.name)   # "Ahmed" ← auto cleaned and capitalized!
+
+# ❌ Bad age
+User(name="Ali", age=-5, email="a@b.com", password="Secret123")
+# ValidationError: Age cannot be negative
