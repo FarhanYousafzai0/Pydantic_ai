@@ -6,3 +6,5 @@
 2026-02-18 16:56:41,318 - app_logger - INFO - Root endpoint called
 2026-02-18 17:05:17,342 - app_logger - INFO - Creating user: MetaCloud with age 5
 2026-02-18 17:05:17,342 - app_logger - INFO - User MetaCloud created successfully
+2026-02-18 17:29:54,906 - app_logger - INFO - Root endpoint called
+2026-02-18 17:30:56,426 - app_logger - INFO - Creating user: MetaCloud with age 5
